@@ -1,0 +1,19 @@
+package parking.refactored.paymentmanager.types;
+
+import parking.refactored.paymentmanager.RefundablePayment;
+
+public class CardPayment implements RefundablePayment {
+    private final String lastDigits;
+
+    public CardPayment(String lastDigits) { this.lastDigits = lastDigits; }
+
+    public String name() { return "CARD"; }
+
+    public void pay(double amount) {
+        System.out.println("[CARD ****" + lastDigits + "] paid " + amount + " MAD");
+    }
+
+    public void refund(double amount) {
+        System.out.println("[CARD ****" + lastDigits + "] refunded " + amount + " MAD");
+    }
+}
